@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+}
+
+nav{
+    align-items: center;
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.navbar-img{
+    width: 160px;
+}
