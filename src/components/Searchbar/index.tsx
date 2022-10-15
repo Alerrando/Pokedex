@@ -4,7 +4,7 @@ import { searchPokemon } from "../../api";
 
 export function Searchbar(){
     const [search, setSearch] = useState("charizard");
-    const [pokemon, setPokemon] = useState()
+    const [pokemon, setPokemon] = useState<any>()
     
     return(
         <div className="searchbar-container">
@@ -16,7 +16,9 @@ export function Searchbar(){
             </div>
             {pokemon ? (
                 <div>
-                
+                    <div>Nome: {pokemon.name}</div>
+                    <div>Peso: {pokemon.weight}</div>
+                    <img src={pokemon.sprites.front_default} alt={`foto do pokemon ${pokemon.name}`} />
                 </div>
             ) : null}
         </div>
