@@ -1,6 +1,7 @@
 import { Navbar } from './components/Navbar'
 import './App.css'
 import { Searchbar } from './components/Searchbar'
+import { Pokedex } from './components/Pokedex'
 
 export function App() {
 
@@ -10,6 +11,7 @@ export function App() {
     <div>
       <Navbar />
       <Searchbar/>
+      <Pokedex />
     </div>
   )
 }
