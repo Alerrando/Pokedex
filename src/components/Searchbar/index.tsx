@@ -1,13 +1,10 @@
 import { ChangeEvent } from "react"
 import { useState } from "react";
+import { searchPokemon } from "../../api";
 
-type SearchBarProps = {
-    onSearch: (pokemon:string) => void;
-}
-
-export function Searchbar(props:SearchBarProps){
-    const { onSearch } = props;
-    const [search, setSearch] = useState("charizard")
+export function Searchbar(){
+    const [search, setSearch] = useState("charizard");
+    const [pokemon, setPokemon] = useState()
     
     return(
         <div className="searchbar-container">
@@ -17,10 +14,22 @@ export function Searchbar(props:SearchBarProps){
             <div className="searchbar-btn">
                 <button onClick={onButtonClickHandler}>Buscar</button>
             </div>
+            {pokemon ? (
+                <div>
+                
+                </div>
+            ) : null}
         </div>
     )
 
     function onButtonClickHandler(){
-       const pokemon = onSearch(search);
+       onSearchHandler(search)
     }
+
+    async function onSearchHandler(pokemon:string){
+        const result = await searchPokemon(pokemon);
+        setPokemon(result)
+    
+        console.log(result)
+      }
 }
