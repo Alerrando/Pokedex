@@ -31,7 +31,5 @@ export function Searchbar(){
     async function onSearchHandler(pokemon:string){
         const result = await searchPokemon(pokemon);
         setPokemon(result)
-    
-        console.log(result)
-      }
+    }
 }
