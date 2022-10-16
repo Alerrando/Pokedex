@@ -1,14 +1,12 @@
 import { Pokemon } from "../Pokemon";
 
 type PokedexProps = {
-  pokemons: never[];
+  pokemons: any[];
   loading: boolean;
 };
 
 export function Pokedex(props: PokedexProps) {
   const { pokemons, loading } = props;
-
-  console.log(pokemons)
 
   return (
     <>
@@ -21,13 +19,9 @@ export function Pokedex(props: PokedexProps) {
           <div>Carregando...</div>
         ) : (
           <div className="pokedex-grind">
-            {pokemons.map((pokemon, index) => {
-              return(
-                <>
+            {pokemons?.map((pokemon, index) => (
                   <Pokemon pokemon={pokemon} key={index} />
-                </>
-              )
-            })}
+            ))}
           </div>
         )}
       </div>
