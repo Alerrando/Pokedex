@@ -32,7 +32,6 @@ export function App() {
       })
       const results = await Promise.all(promises)
       setPokemons(results);
-      console.log(pokemons)
       setLoading(false);
 
     } catch (error) {

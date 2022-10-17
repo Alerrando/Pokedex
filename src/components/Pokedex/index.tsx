@@ -18,7 +18,7 @@ export function Pokedex(props: PokedexProps) {
         {loading ? (
           <div>Carregando...</div>
         ) : (
-          <div className="pokedex-grind">
+          <div className="pokedex-grid">
             {pokemons?.map((pokemon, index) => (
                   <Pokemon pokemon={pokemon} key={index} />
             ))}

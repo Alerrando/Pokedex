@@ -4,7 +4,7 @@ type PokemonProps = {
 
 export function Pokemon(props: PokemonProps) {
   const { pokemon } = props;
-  const hearth = "❤️"
+  const hearth = "❤️";
 
   return (
     <div className="pokemon-card">
@@ -21,25 +21,26 @@ export function Pokemon(props: PokemonProps) {
           <h3>{pokemon.name}</h3>
           <div>#{pokemon.id}</div>
         </div>
-      </div>
-
-      <div className="card-bottom">
-        <div className="pokemon-type">
-          {pokemon?.types.map((type: any, index: number) => (
-                <div className="pokemon-type-text" key={index}>
-                  {type.type.name}
-                </div>
-          ))}
-        </div>
-
-        <button className="pokemon-hearth-btn" onClick={() => onHearthClick()}>
+        <div className="card-bottom">
+          <div className="pokemon-type">
+            {pokemon?.types.map((type: any, index: number) => (
+              <div className="pokemon-type-text" key={index}>
+                {type.type.name}
+              </div>
+            ))}
+          </div>
+          <button
+            className="pokemon-hearth-btn"
+            onClick={() => onHearthClick()}
+          >
             {hearth}
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );
 
-  function onHearthClick(){
-    console.log("funcionou")
+  function onHearthClick() {
+    console.log("funcionou");
   }
 }
