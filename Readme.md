@@ -1,10 +1,10 @@
 <h1 align="center">
     <img src="./github/icon.png" alt="icone do site">
     </br>
-    Portfólio
+    Pokédex
 </h1>
 
-<p align="center">Um projeto de uma Pokedex feito com <a href="https://www.typescriptlang.org/">Typescript</a> 
+<p align="center">Um projeto de uma Pokédex feito com <a href="https://www.typescriptlang.org/">Typescript</a> 
 </br>
 
 ## ⌨️ Criação e Execução

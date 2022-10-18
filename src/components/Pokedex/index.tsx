@@ -5,11 +5,12 @@ type PokedexProps = {
   pokemons: any[];
   loading: boolean;
   page: number,
+  setPage: (page:number) => void,
   totalPages: number,
 };
 
 export function Pokedex(props: PokedexProps) {
-  const { pokemons, loading, page, totalPages } = props;
+  const { pokemons, loading, page, setPage,totalPages } = props;
 
   return (
     <>
@@ -36,11 +37,11 @@ export function Pokedex(props: PokedexProps) {
     </>
   );
 
-  function onLeftClickHandler(){
-    console.log("votla")
+  function onRightClickHandler(){
+    page+1 < totalPages && setPage(page+1)
   }
 
-  function onRightClickHandler(){
-    console.log("avança")
+  function onLeftClickHandler(){
+    page !=0 && setPage(page - 1);
   }
 }

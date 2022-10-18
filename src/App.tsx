@@ -24,6 +24,7 @@ export function App() {
         pokemons={pokemons}
         loading={loading}
         page={page}
+        setPage={setPage}
         totalPages={totalPages}
       />
     </div>
