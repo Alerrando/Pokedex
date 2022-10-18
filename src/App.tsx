@@ -27,7 +27,7 @@ export function App() {
     try {
       setLoading(true);
       const data = await getPokemon();
-      const promises = data.results.map(async (pokemon:object) => {
+      const promises = data.results.map(async (pokemon:any) => {
         return await getPokemonData(pokemon.url);
       })
       const results = await Promise.all(promises)
