@@ -8,7 +8,8 @@ type PokemonProps = {
 export function Pokemon(props: PokemonProps) {
   const {favoritePokemon, updateFavoritePokemon} = useContext(FavoriteContext);
   const { pokemon } = props;
-  const hearth = "❤️";
+  console.log(pokemon.name);
+  const hearth = favoritePokemon.includes(pokemon.name) ? "❤️" : "🖤";
 
   return (
     <div className="pokemon-card">

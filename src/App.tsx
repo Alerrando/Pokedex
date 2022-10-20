@@ -43,8 +43,9 @@ export function App() {
 
   function updateFavoritePokemons(name:string) {
     const updateFavorite = [...favorites];
+    console.log(favorites, updateFavorite)
     const favoriteIndex = favorites.indexOf(`${name}`);
-    favoriteIndex > 0
+    favoriteIndex >= 0
       ? updateFavorite.slice(favoriteIndex, 1)
       : updateFavorite.push(name);
     setFavorites(updateFavorite);
