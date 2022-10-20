@@ -26,6 +26,34 @@ nav{
     width: 100%;
 }
 
+@media screen and (max-width: 640px) {
+    .container{
+        margin: 0px;
+    }
+
+    .container-navbar{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .container-gadgets{
+        margin-bottom: 10%;
+    }
+
+    .searchbar-btn{
+        margin-right: 10px;
+        right: 0;
+        position: absolute;
+    }
+    
+    .searchbar-btn button{
+        height: 35px !important;
+        padding: 0 32px !important;
+    }
+
+   
+}
+
 .container-navbar{
     justify-content: space-between;
     width: 35%;
@@ -37,6 +65,7 @@ nav{
     margin: 0px auto;
     padding: 0 20px;
 }
+
 
 .searchbar{
     background-color: white;
@@ -58,6 +87,11 @@ nav{
     cursor: pointer;
     height: 44px;
     padding: 10px 12px;
+    opacity: 0.8;
+}
+
+.searchbar-btn button:hover{
+        opacity: 1;
 }
 
 .container-gadgets{
