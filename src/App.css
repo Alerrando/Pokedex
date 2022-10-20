@@ -2,11 +2,14 @@
     margin: 0px;
 }
 
-nav{
+nav, .pokedex-header, .pagination-container{
     align-items: center;
     display: flex;
-    height: 100px;
     flex-direction: row;
+}
+
+nav{
+    height: 100px;
     justify-content: space-evenly;
 }
 
@@ -43,9 +46,6 @@ nav{
 }
 
 .pokedex-header{
-    align-items: center;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding: 10px;
 }
