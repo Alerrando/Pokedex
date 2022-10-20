@@ -10,6 +10,7 @@ export function Navbar() {
           className="navbar-img"
         />
       </div>
+      <div>❤️</div>
     </nav>
   );
 }
