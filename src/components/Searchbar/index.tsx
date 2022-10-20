@@ -2,9 +2,15 @@ import { ChangeEvent } from "react"
 import { useState } from "react";
 import { searchPokemon } from "../../api";
 
-export function Searchbar(){
-    const [search, setSearch] = useState("charizard");
-    const [pokemon, setPokemon] = useState<any>()
+type SearchBarProps = {
+    onSearch: (pokemon:string) => void;
+}
+
+export function Searchbar(props:SearchBarProps){
+    const [search, setSearch] = useState("");
+    const {onSearch} = props;
+
+    console.log(search)
     
     return(
         <div className="searchbar-container">
@@ -14,22 +20,17 @@ export function Searchbar(){
             <div className="searchbar-btn">
                 <button onClick={onButtonClickHandler}>Buscar</button>
             </div>
-            {pokemon ? (
-                <div>
-                    <div>Nome: {pokemon.name}</div>
-                    <div>Peso: {pokemon.weight}</div>
-                    <img src={pokemon.sprites.front_default} alt={`foto do pokemon ${pokemon.name}`} />
-                </div>
-            ) : null}
         </div>
     )
 
     function onButtonClickHandler(){
-       onSearchHandler(search)
+        if(onChangeHandler(search)){onSearch(search)}
+
     }
 
-    async function onSearchHandler(pokemon:string){
-        const result = await searchPokemon(pokemon);
-        setPokemon(result)
+    function onChangeHandler(e:string){
+        if(e === "") {return ""}
+
+        return true;
     }
 }

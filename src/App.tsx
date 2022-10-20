@@ -3,12 +3,13 @@ import "./App.css";
 import { Searchbar } from "./components/Searchbar";
 import { Pokedex } from "./components/Pokedex";
 import { useEffect, useState } from "react";
-import { getPokemon, getPokemonData } from "./api";
+import { getPokemon, getPokemonData, searchPokemon } from "./api";
 import { FavoriteProvider } from "./context/favoritesContext";
 
-const favoritesKeys = "f"
+const favoritesKeys = "f";
 export function App() {
   const [loading, setLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -24,7 +25,6 @@ export function App() {
     fetchPokemon();
   }, [page]);
 
-
   return (
     <>
       <FavoriteProvider
@@ -35,7 +35,7 @@ export function App() {
       >
         <div>
           <Navbar />
-          <Searchbar />
+          <Searchbar onSearch={onSearchHandler} />
           <Pokedex
             pokemons={pokemons}
             loading={loading}
@@ -48,20 +48,41 @@ export function App() {
     </>
   );
 
-  function loadFavoritePokemons(){
+  function loadFavoritePokemons() {
     try {
       const pokemons = JSON.parse(localStorage.getItem(favoritesKeys) || "");
 
-      if(pokemons.length > 0) {setFavorites(pokemons);}
-      
+      if (pokemons.length > 0) {
+        setFavorites(pokemons);
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
-  function updateFavoritePokemons(name:string) {
+  async function onSearchHandler(pokemon: string) {
+    if (!pokemon) {
+      return fetchPokemon();
+    }
+
+    setLoading(true);
+    setNotFound(false);
+
+    const result = await searchPokemon(pokemon);
+    if (!result) {
+      setNotFound(true);
+    } else {
+      setPokemons([result]);
+      setPage(0);
+      setTotalPages(1);
+    }
+
+    setLoading(false);
+  }
+
+  function updateFavoritePokemons(name: string) {
     const updateFavorite = [...favorites];
-    console.log(favorites, updateFavorite)
+    console.log(favorites, updateFavorite);
     const favoriteIndex = favorites.indexOf(`${name}`);
     favoriteIndex >= 0
       ? updateFavorite.slice(favoriteIndex, 1)
