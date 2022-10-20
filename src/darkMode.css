@@ -16,3 +16,12 @@ nav.dark input{
 nav.dark span{
     color: white;
 }
+
+.pokedex.dark{
+    background-color: #222;
+    color: white
+}
+
+.pokedex.dark .pokemon-hearth-btn{
+    background-color: transparent;
+}

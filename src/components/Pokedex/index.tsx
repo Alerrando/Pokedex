@@ -7,14 +7,15 @@ type PokedexProps = {
   page: number,
   setPage: (page:number) => void,
   totalPages: number,
+  tema:string,
 };
 
 export function Pokedex(props: PokedexProps) {
-  const { pokemons, loading, page, setPage,totalPages } = props;
+  const { pokemons, loading, page, setPage,totalPages, tema } = props;
 
   return (
     <>
-      <div>
+      <div className={`pokedex ${tema}`}>
         <div className="pokedex-header">
           <h1>Pokedex</h1>
           <Pagination

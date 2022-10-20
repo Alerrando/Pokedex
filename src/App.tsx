@@ -46,6 +46,7 @@ export function App() {
               page={page}
               setPage={setPage}
               totalPages={totalPages}
+              tema={tema}
             />
           )}
         </div>

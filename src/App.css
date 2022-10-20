@@ -83,6 +83,17 @@ nav{
     padding: 10px 10px 20px 10px;
 }
 
+.pagination-container{
+    gap: 8px;
+}
+
+.pagination-container button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
 .pokedex-grid{
     display: grid;
     gap: 10px;
