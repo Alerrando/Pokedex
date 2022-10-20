@@ -15,7 +15,7 @@ export function Navbar() {
           className="navbar-img"
         />
       </div>
-      <div>{favoritePokemon.length}❤️</div>
+      <div>{favoritePokemon ? favoritePokemon.length : 0}❤️</div>
     </nav>
   );
 }
