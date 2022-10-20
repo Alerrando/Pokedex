@@ -3,19 +3,17 @@ import { useState } from "react";
 import { searchPokemon } from "../../api";
 
 type SearchBarProps = {
-    onSearch: (pokemon:string) => void;
+    onSearch: (pokemon:any) => void;
 }
 
 export function Searchbar(props:SearchBarProps){
     const [search, setSearch] = useState("");
     const {onSearch} = props;
-
-    console.log(search)
     
     return(
         <div className="searchbar-container">
             <div className="searchbar">
-                <input type="text" placeholder="buscar pokemon" onChange={e => setSearch((e.target as HTMLInputElement).value)} />
+                <input type="text" placeholder="buscar pokemon" onChange={e => onChangeHandler(e)} />
             </div>
             <div className="searchbar-btn">
                 <button onClick={onButtonClickHandler}>Buscar</button>
@@ -23,14 +21,12 @@ export function Searchbar(props:SearchBarProps){
         </div>
     )
 
-    function onButtonClickHandler(){
-        if(onChangeHandler(search)){onSearch(search)}
-
+    function onChangeHandler(e:ChangeEvent){
+        setSearch((e.target as HTMLInputElement).value.toLowerCase());
+        if((e.target as HTMLInputElement).value.length == 0) {onSearch(undefined)}
     }
 
-    function onChangeHandler(e:string){
-        if(e === "") {return ""}
-
-        return true;
+    function onButtonClickHandler(){
+        onSearch(search.toLowerCase());
     }
 }

@@ -36,13 +36,17 @@ export function App() {
         <div>
           <Navbar />
           <Searchbar onSearch={onSearchHandler} />
-          <Pokedex
-            pokemons={pokemons}
-            loading={loading}
-            page={page}
-            setPage={setPage}
-            totalPages={totalPages}
-          />
+          {notFound == true ? (
+            <div className="not-found-text">Pokémon não encontrado</div>
+          ) : (
+            <Pokedex
+              pokemons={pokemons}
+              loading={loading}
+              page={page}
+              setPage={setPage}
+              totalPages={totalPages}
+            />
+          )}
         </div>
       </FavoriteProvider>
     </>
@@ -60,11 +64,10 @@ export function App() {
     }
   }
 
-  async function onSearchHandler(pokemon: string) {
+  async function onSearchHandler(pokemon:any) {
     if (!pokemon) {
       return fetchPokemon();
     }
-
     setLoading(true);
     setNotFound(false);
 
@@ -95,6 +98,7 @@ export function App() {
   async function fetchPokemon() {
     try {
       setLoading(true);
+      setNotFound(false)
       const data = await getPokemon(itensPerPage, itensPerPage * page);
       const promises = data.results.map(async (pokemon: any) => {
         return await getPokemonData(pokemon.url);
