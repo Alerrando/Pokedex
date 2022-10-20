@@ -1,6 +1,5 @@
 import { ChangeEvent } from "react"
 import { useState } from "react";
-import { searchPokemon } from "../../api";
 
 type SearchBarProps = {
     onSearch: (pokemon:any) => void;

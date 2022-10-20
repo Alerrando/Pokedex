@@ -1,5 +1,6 @@
 import { Navbar } from "./components/Navbar";
 import "./App.css";
+import './darkMode.css';
 import { Searchbar } from "./components/Searchbar";
 import { Pokedex } from "./components/Pokedex";
 import { useEffect, useState } from "react";
@@ -14,6 +15,7 @@ export function App() {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [tema, setTema] = useState("white");
 
   const itensPerPage = 25;
 
@@ -34,8 +36,7 @@ export function App() {
         }}
       >
         <div>
-          <Navbar />
-          <Searchbar onSearch={onSearchHandler} />
+          <Navbar onSearch={onSearchHandler} setTema={setTema} tema={tema} />
           {notFound == true ? (
             <div className="not-found-text">Pokémon não encontrado</div>
           ) : (
