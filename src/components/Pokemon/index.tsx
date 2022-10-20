@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import FavoriteContext from "../../context/favoritesContext";
+
 type PokemonProps = {
   pokemon: any;
 };
 
 export function Pokemon(props: PokemonProps) {
+  const {favoritePokemon, updateFavoritePokemon} = useContext(FavoriteContext);
   const { pokemon } = props;
   const hearth = "❤️";
 
@@ -41,6 +45,6 @@ export function Pokemon(props: PokemonProps) {
   );
 
   function onHearthClick() {
-    console.log("funcionou");
+    updateFavoritePokemon(pokemon.name);
   }
 }
