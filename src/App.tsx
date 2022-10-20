@@ -11,7 +11,7 @@ export function App() {
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<string[]>([]);
 
   const itensPerPage = 25;
   useEffect(() => {
@@ -41,7 +41,7 @@ export function App() {
     </>
   );
 
-  function updateFavoritePokemons(name: string) {
+  function updateFavoritePokemons(name:string) {
     const updateFavorite = [...favorites];
     const favoriteIndex = favorites.indexOf(`${name}`);
     favoriteIndex > 0
