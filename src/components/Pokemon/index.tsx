@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import FavoriteContext from "../../context/favoritesContext";
+import './habitat.css'
 
 type PokemonProps = {
   pokemon: any;
@@ -9,9 +10,10 @@ export function Pokemon(props: PokemonProps) {
   const {favoritePokemon, updateFavoritePokemon} = useContext(FavoriteContext);
   const { pokemon } = props;
   const hearth = favoritePokemon.includes(pokemon.name) ? "❤️" : "🖤";
+  const type = pokemon.types[0].type.name
 
   return (
-    <div className="pokemon-card">
+    <div className={`pokemon-card ${type}`}>
       <div className="pokmeon-image-contai">
         <img
           src={pokemon.sprites.front_default}

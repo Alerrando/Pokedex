@@ -1,0 +1,4 @@
+.pokemon-card.grass{
+    background: url('Habitat/grass.webp');
+    background-size: cover;
+}
