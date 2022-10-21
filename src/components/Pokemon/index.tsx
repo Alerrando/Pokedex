@@ -6,16 +6,20 @@ type PokemonProps = {
 };
 
 export function Pokemon(props: PokemonProps) {
-  const {favoritePokemon, updateFavoritePokemon} = useContext(FavoriteContext);
+  const { favoritePokemon, updateFavoritePokemon } =
+    useContext(FavoriteContext);
   const { pokemon } = props;
   const hearth = favoritePokemon.includes(pokemon.name) ? "❤️" : "🖤";
-  const type = pokemon.types[0].type.name
+  const typePokemon = pokemon.types[0].type.name;
 
   return (
-    <div className={`pokemon-card`} style={{
-      background: `url("Habitat/${type}.webp")`
-    }}>
-      <div className="pokmeon-image-contai">
+    <div
+      className={`pokemon-card`}
+      style={{
+        background: `url("Habitat/${typePokemon}.jpeg")`,
+      }}
+    >
+      <div className="pokemon-image-container">
         <img
           src={pokemon.sprites.front_default}
           alt={pokemon.name}
@@ -32,7 +36,15 @@ export function Pokemon(props: PokemonProps) {
           <div className="pokemon-type">
             {pokemon?.types.map((type: any, index: number) => (
               <div className="pokemon-type-text" key={index}>
-                {type.type.name}
+                <button
+                  className="btn-type-pokemon"
+                  style={{
+                    background: `url("/public/Habitat/${type.type.name}.jpeg")`,
+                    backgroundSize:"cover",
+                  }}
+                >
+                  {type.type.name}
+                </button>
               </div>
             ))}
           </div>

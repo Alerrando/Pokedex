@@ -12,7 +12,7 @@ export function Searchbar(props:SearchBarProps){
     return(
         <div className="searchbar-container">
             <div className="searchbar">
-                <input type="text" placeholder="buscar pokemon" onChange={e => onChangeHandler(e)} />
+                <input type="text" placeholder="Buscar pokemon" onChange={e => onChangeHandler(e)} />
             </div>
             <div className="searchbar-btn">
                 <button onClick={onButtonClickHandler}>Buscar</button>

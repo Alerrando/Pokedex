@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FavoriteContext from "../../context/favoritesContext";
-import { Searchbar } from "../Searchbar";
+import { Searchbar } from "./Searchbar";
 
 type NavbarProps = {
   onSearch: (pokemon: any) => void;
@@ -21,14 +21,14 @@ export function Navbar(props: NavbarProps) {
           <div>
             <img src={logoImg} alt="pokeapi-logo" className="navbar-img" />
           </div>
-          <Searchbar onSearch={onSearch} />
         </div>
 
         <div className="container-gadgets">
-          <span>{favoritePokemon.length}❤️</span>
+          <span>Favoritos {favoritePokemon.length}❤️</span>
           <span onClick={changeTema}>{tema == "white" ? "☀️" : "🌙"} </span>
         </div>
       </div>
+      <Searchbar onSearch={onSearch} />
     </nav>
   );
 

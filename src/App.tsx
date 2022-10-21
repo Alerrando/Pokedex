@@ -1,7 +1,7 @@
 import { Navbar } from "./components/Navbar";
 import "./App.css";
 import './darkMode.css';
-import { Searchbar } from "./components/Searchbar";
+import { Searchbar } from "./components/Navbar/Searchbar";
 import { Pokedex } from "./components/Pokedex";
 import { useEffect, useState } from "react";
 import { getPokemon, getPokemonData, searchPokemon } from "./api";
@@ -15,7 +15,7 @@ export function App() {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [tema, setTema] = useState("white");
+  const [tema, setTema] = useState("dark");
 
   const itensPerPage = 25;
 
