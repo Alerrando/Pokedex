@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import FavoriteContext from "../../context/favoritesContext";
-import './habitat.css'
 
 type PokemonProps = {
   pokemon: any;
@@ -13,7 +12,9 @@ export function Pokemon(props: PokemonProps) {
   const type = pokemon.types[0].type.name
 
   return (
-    <div className={`pokemon-card ${type}`}>
+    <div className={`pokemon-card`} style={{
+      background: `url("Habitat/${type}.webp")`
+    }}>
       <div className="pokmeon-image-contai">
         <img
           src={pokemon.sprites.front_default}
