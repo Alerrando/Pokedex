@@ -22,6 +22,7 @@ nav{
     display: flex;
     justify-content: space-between;
     margin: 0 20px;
+    padding: 10px 0px;
     width: 30%;
 }
 
@@ -65,7 +66,7 @@ nav{
 }
 
 .searchbar-btn button:hover{
-        opacity: 1;
+    opacity: 1;
 }
 
 .container-gadgets{
@@ -81,12 +82,12 @@ nav{
 }
 
 .pokedex{
-    height: 141vh;
+    height: 145vh;
 }
 
 .pokedex-header{
     justify-content: space-between;
-    padding: 10px 10px 20px 10px;
+    padding: 30px 10px 20px 10px;
 }
 
 .pagination-container{
@@ -104,6 +105,8 @@ nav{
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);
+    padding:  10px 0 0 12px;
+    overflow: hidden;
 }
 
 .pokemon-card{
@@ -112,6 +115,14 @@ nav{
     cursor: pointer;
     color: white;
     display: flex;
+    max-width: 478px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.pokemon-card:hover{
+    border: 3px solid rgba(249, 249, 249, 0.8);
+    transform: scale(1.05);
 }
 
 .pokemon-image-container{
@@ -181,7 +192,6 @@ nav{
 @media screen and (max-width: 640px) {
     .container{
         margin: 0px;
-        padding: 10px 0px;
         width: 100%;
     }
 
@@ -200,6 +210,12 @@ nav{
     }
 
     .pokedex-grid{
-        grid-template-columns: 100%;
+        grid-template-columns: 97%;
     }
+
+    .pokemon-card{
+        max-width: 380px;
+        transition: none;
+    }
+
 }
