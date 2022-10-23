@@ -25,6 +25,7 @@ export function App() {
 
   useEffect(() => {
     fetchPokemon();
+  }, [page])
 
   return (
     <>
