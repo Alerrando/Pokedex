@@ -1,8 +1,8 @@
 import React from "react";
 
 type favoriteContextProps = {
-  favoritePokemon: string[];
-  updateFavoritePokemon: (name: string) => void;
+  favoritePokemon: string[],
+  updateFavoritePokemon: (name: string) => void,
 };
 
 const FavoriteContext = React.createContext<favoriteContextProps>({

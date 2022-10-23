@@ -1,14 +1,18 @@
-import { useContext } from "react";
-import FavoriteContext from "../../context/favoritesContext";
+import { useContext, useState } from "react";
+import FavoriteContext from "../../../context/favoritesContext";
+import { InfoPokemon } from "../../InfoPokemon";
 
 type PokemonProps = {
   pokemon: any;
+  modal:boolean,
+  setModal: (modal:boolean) => void,
+  setClickPokemon: (pokemon:string) => void,
 };
 
 export function Pokemon(props: PokemonProps) {
-  const { favoritePokemon, updateFavoritePokemon } =
+  const { favoritePokemon,updateFavoritePokemon } =
     useContext(FavoriteContext);
-  const { pokemon } = props;
+  const { pokemon,modal, setModal, setClickPokemon } = props;
   const hearth = favoritePokemon.includes(pokemon.name) ? "❤️" : "🖤";
   const typePokemon = pokemon.types[0].type.name;
 
@@ -18,6 +22,7 @@ export function Pokemon(props: PokemonProps) {
       style={{
         background: `url("Habitat/${typePokemon}.jpeg")`,
       }}
+      onClick={() => onClickPokemon()}
     >
       <div className="pokemon-image-container">
         <img
@@ -40,7 +45,7 @@ export function Pokemon(props: PokemonProps) {
                   className="btn-type-pokemon"
                   style={{
                     background: `url("/public/Habitat/${type.type.name}.jpeg")`,
-                    backgroundSize:"cover",
+                    backgroundSize: "cover",
                   }}
                 >
                   {type.type.name}
@@ -61,5 +66,10 @@ export function Pokemon(props: PokemonProps) {
 
   function onHearthClick() {
     updateFavoritePokemon(pokemon.name);
+  }
+
+  function onClickPokemon(){
+    setModal(!modal);
+    setClickPokemon(pokemon.name);
   }
 }

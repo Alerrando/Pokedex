@@ -1,11 +1,10 @@
 import { Navbar } from "./components/Navbar";
 import "./App.css";
-import './darkMode.css';
-import { Searchbar } from "./components/Navbar/Searchbar";
 import { Pokedex } from "./components/Pokedex";
 import { useEffect, useState } from "react";
 import { getPokemon, getPokemonData, searchPokemon } from "./api";
 import { FavoriteProvider } from "./context/favoritesContext";
+import { InfoPokemon } from "./components/InfoPokemon";
 
 const favoritesKeys = "f";
 export function App() {
@@ -15,7 +14,8 @@ export function App() {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [tema, setTema] = useState("dark");
+  const [modal, setModal] = useState(false);
+  const [clickPokemon, setClickPokemon] = useState("")
 
   const itensPerPage = 25;
 
@@ -25,32 +25,34 @@ export function App() {
 
   useEffect(() => {
     fetchPokemon();
-  }, [page]);
 
   return (
     <>
-      <FavoriteProvider
-        value={{
-          favoritePokemon: favorites,
-          updateFavoritePokemon: updateFavoritePokemons,
-        }}
-      >
-        <div>
-          <Navbar onSearch={onSearchHandler} setTema={setTema} tema={tema} />
-          {notFound == true ? (
-            <div className="not-found-text">Pokémon não encontrado</div>
-          ) : (
-            <Pokedex
-              pokemons={pokemons}
-              loading={loading}
-              page={page}
-              setPage={setPage}
-              totalPages={totalPages}
-              tema={tema}
-            />
-          )}
-        </div>
-      </FavoriteProvider>
+        <InfoPokemon setModal={setModal} clickPokemon={clickPokemon}/>
+        <FavoriteProvider
+          value={{
+            favoritePokemon: favorites,
+            updateFavoritePokemon: updateFavoritePokemons,
+          }}
+        >
+          <div>
+            <Navbar onSearch={onSearchHandler} />
+            {notFound == true ? (
+              <div className="not-found-text">Pokémon não encontrado</div>
+            ) : (
+              <Pokedex
+                pokemons={pokemons}
+                loading={loading}
+                page={page}
+                setPage={setPage}
+                totalPages={totalPages}
+                modal={modal}
+                setModal={setModal}
+                setClickPokemon={setClickPokemon}
+              />
+            )}
+          </div>
+        </FavoriteProvider>
     </>
   );
 
@@ -100,7 +102,7 @@ export function App() {
   async function fetchPokemon() {
     try {
       setLoading(true);
-      setNotFound(false)
+      setNotFound(false);
       const data = await getPokemon(itensPerPage, itensPerPage * page);
       const promises = data.results.map(async (pokemon: any) => {
         return await getPokemonData(pokemon.url);

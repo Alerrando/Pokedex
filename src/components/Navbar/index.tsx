@@ -4,18 +4,16 @@ import { Searchbar } from "./Searchbar";
 
 type NavbarProps = {
   onSearch: (pokemon: any) => void;
-  setTema: (tema: string) => void;
-  tema: string;
 };
 
 export function Navbar(props: NavbarProps) {
-  const { onSearch, setTema, tema } = props;
+  const { onSearch} = props;
   const logoImg =
     "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
   const { favoritePokemon } = useContext(FavoriteContext);
 
   return (
-    <nav className={`${tema}`}>
+    <nav>
       <div className="container">
         <div className="container-navbar">
           <div>
@@ -25,15 +23,9 @@ export function Navbar(props: NavbarProps) {
 
         <div className="container-gadgets">
           <span>Favoritos {favoritePokemon.length}❤️</span>
-          <span onClick={changeTema}>{tema == "white" ? "☀️" : "🌙"} </span>
         </div>
       </div>
       <Searchbar onSearch={onSearch} />
     </nav>
   );
-
-  function changeTema(){
-    if(tema == "white") {setTema("dark")}
-    else if(tema == "dark") {setTema("white")}
-  }
 }

@@ -1,5 +1,5 @@
 import { Pagination } from "../Pagination";
-import { Pokemon } from "../Pokemon";
+import { Pokemon } from "./Pokemon";
 
 type PokedexProps = {
   pokemons: any[];
@@ -7,15 +7,17 @@ type PokedexProps = {
   page: number,
   setPage: (page:number) => void,
   totalPages: number,
-  tema:string,
+  modal:boolean,
+  setModal: (modal:boolean) => void,
+  setClickPokemon: (pokemon:string) => void,
 };
 
 export function Pokedex(props: PokedexProps) {
-  const { pokemons, loading, page, setPage,totalPages, tema } = props;
+  const { pokemons, loading, page, setPage,totalPages, modal, setModal, setClickPokemon } = props;
 
   return (
     <>
-      <div className={`pokedex ${tema}`}>
+      <div className="pokedex">
         <div className="pokedex-header">
           <h1>Pokedex</h1>
           <Pagination
@@ -30,7 +32,7 @@ export function Pokedex(props: PokedexProps) {
         ) : (
           <div className="pokedex-grid">
             {pokemons?.map((pokemon, index) => (
-              <Pokemon pokemon={pokemon} key={index} />
+              <Pokemon pokemon={pokemon} key={index} modal={modal} setModal={setModal} setClickPokemon={setClickPokemon} />
             ))}
           </div>
         )}
