@@ -20,7 +20,10 @@ export function InfoPokemon(props:InfoPokemon){
     
     return(
         <div className="container-info">
-            <div className="info-container">
+            <div className="info-container" style={{
+                background: `url(Habitat/${pokemon.types[0].type.name}.jpeg)`,
+                backgroundSize: "cover"
+            }}>
                 <header className="info-header">
                     {infos.name}
                 </header>
