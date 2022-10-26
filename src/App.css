@@ -129,7 +129,7 @@ nav span{
     cursor: pointer;
     color: white;
     display: flex;
-    max-width: 478px;
+    max-width: 470px;
     position: relative;
     transition: all 0.2s ease;
 }

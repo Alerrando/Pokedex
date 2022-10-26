@@ -70,7 +70,7 @@
 }
 
 .infos-pokemon{
-    margin: 0 2rem;
+    margin: 0 1.3rem;
     width: 100%;
 }
 
@@ -83,15 +83,20 @@
 }
 
 .info-status p{
-    width: 7rem;
+    width: 8rem;
 }
 
 .info-status .status{
-    background-color: red;
+    background-color: #eee;
     border: 1px solid black;
     border-radius: 100px;
     height: 0.625rem;
     width: 70%;
+}
+
+.info-status .status-quant{
+    background-color: red;
+    height: 100%;
 }
 
 @media screen and (max-width: 640px){

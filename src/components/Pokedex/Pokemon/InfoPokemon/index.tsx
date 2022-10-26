@@ -43,7 +43,9 @@ export function InfoPokemon(props: InfoPokemonProps) {
               {pokemon.stats.map((stat:any) => (
                 <div className={`info-status ${stat.stat.name}`}>
                   <p>{stat.stat.name}</p>
-                  <div className="status"></div>
+                  <div className="status">
+                    <div className="status-quant" style={{width: stat.base_stat}}></div>
+                  </div>
                 </div>
               ))}
             </div>
