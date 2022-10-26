@@ -4,7 +4,6 @@ import { Pokedex } from "./components/Pokedex";
 import { useEffect, useState } from "react";
 import { getPokemon, getPokemonData, searchPokemon } from "./api";
 import { FavoriteProvider } from "./context/favoritesContext";
-import { InfoPokemon } from "./components/InfoPokemon";
 
 const favoritesKeys = "f";
 export function App() {
@@ -14,13 +13,12 @@ export function App() {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [modal, setModal] = useState(false);
-  const [clickPokemon, setClickPokemon] = useState("")
 
   const itensPerPage = 25;
 
   useEffect(() => {
     loadFavoritePokemons();
+    
   }, []);
 
   useEffect(() => {
@@ -29,7 +27,6 @@ export function App() {
 
   return (
     <>
-        <InfoPokemon setModal={setModal} clickPokemon={clickPokemon}/>
         <FavoriteProvider
           value={{
             favoritePokemon: favorites,
@@ -47,9 +44,6 @@ export function App() {
                 page={page}
                 setPage={setPage}
                 totalPages={totalPages}
-                modal={modal}
-                setModal={setModal}
-                setClickPokemon={setClickPokemon}
               />
             )}
           </div>
@@ -92,8 +86,9 @@ export function App() {
     const updateFavorite = [...favorites];
     console.log(favorites, updateFavorite);
     const favoriteIndex = favorites.indexOf(`${name}`);
+    console.log(favoriteIndex)
     favoriteIndex >= 0
-      ? updateFavorite.slice(favoriteIndex, 1)
+      ? updateFavorite.splice(favoriteIndex, 1)
       : updateFavorite.push(name);
 
     localStorage.setItem(favoritesKeys, JSON.stringify(updateFavorite));

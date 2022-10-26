@@ -7,13 +7,10 @@ type PokedexProps = {
   page: number,
   setPage: (page:number) => void,
   totalPages: number,
-  modal:boolean,
-  setModal: (modal:boolean) => void,
-  setClickPokemon: (pokemon:string) => void,
 };
 
 export function Pokedex(props: PokedexProps) {
-  const { pokemons, loading, page, setPage,totalPages, modal, setModal, setClickPokemon } = props;
+  const { pokemons, loading, page, setPage,totalPages } = props;
 
   return (
     <>
@@ -32,7 +29,7 @@ export function Pokedex(props: PokedexProps) {
         ) : (
           <div className="pokedex-grid">
             {pokemons?.map((pokemon, index) => (
-              <Pokemon pokemon={pokemon} key={index} modal={modal} setModal={setModal} setClickPokemon={setClickPokemon} />
+              <Pokemon pokemon={pokemon} key={index} />
             ))}
           </div>
         )}
