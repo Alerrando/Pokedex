@@ -27,11 +27,11 @@ export function Pokedex(props: PokedexProps) {
         {loading ? (
           <div>Carregando...</div>
         ) : (
-          <div className="pokedex-grid">
+          <main className="pokedex-grid">
             {pokemons?.map((pokemon, index) => (
               <Pokemon pokemon={pokemon} key={index} />
             ))}
-          </div>
+          </main>
         )}
       </div>
     </>

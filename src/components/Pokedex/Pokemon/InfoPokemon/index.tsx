@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, Star } from 'phosphor-react'
 import './style.css'
 
-type InfoPokemon = {
+type InfoPokemonProps = {
     setModal: (modal:boolean) => void;
     clickPokemon: string,
     pokemon:any
 }
 
-export function InfoPokemon(props:InfoPokemon){
+export function InfoPokemon(props:InfoPokemonProps){
     const { setModal, clickPokemon, pokemon } = props;
     const [ infos, setInfos ] = useState<any>([]);
 
@@ -24,10 +24,20 @@ export function InfoPokemon(props:InfoPokemon){
                 backgroundSize: "cover"
             }}>
                 <header className="info-header">
-                    <ArrowLeft size={32} />
-                    <h2>{infos.name}</h2>
+                    <ArrowLeft size={32} onClick={() => setModal(false)} />
+                    <h2 className='h2'>{infos.name}</h2>
                     <Star size={32} className="icon-star" />
                 </header>
+
+                <section>
+                    <figure>
+                        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                    </figure>
+
+                    <div className="container-infos-pokemon">
+                        
+                    </div>
+                </section>
             </div>
         </div>
     )
