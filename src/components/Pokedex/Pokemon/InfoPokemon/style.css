@@ -54,15 +54,16 @@
 
 .info-container section{
     position: relative;
+    height: 100%;
 }
 
 .container-infos-pokemon{
     background-color: white;
     border-radius: 40px 40px 0 0;
-    height: 123%;
+    height: 65%;
     margin: 0 auto;
     position: absolute;
-    top: 61%;
+    top: 26%;
     width: 100%;
 }
 
@@ -73,8 +74,7 @@
     }
 
     .container-infos-pokemon{
-        height: 173%;
-        top: 60%;
+        height: 64.7%;
         width: 100%;
     }
 }
