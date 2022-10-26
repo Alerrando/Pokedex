@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ArrowLeft, Star } from 'phosphor-react'
 import './style.css'
 
 type InfoPokemon = {
@@ -14,8 +15,6 @@ export function InfoPokemon(props:InfoPokemon){
     useEffect(() => {
         SearchPokemonClick();
     }, [])
-
-    console.log(pokemon)
     
     
     return(
@@ -25,7 +24,9 @@ export function InfoPokemon(props:InfoPokemon){
                 backgroundSize: "cover"
             }}>
                 <header className="info-header">
-                    {infos.name}
+                    <ArrowLeft size={32} />
+                    <h2>{infos.name}</h2>
+                    <Star size={32} className="icon-star" />
                 </header>
             </div>
         </div>

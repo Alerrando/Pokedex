@@ -18,7 +18,7 @@ export function App() {
 
   useEffect(() => {
     loadFavoritePokemons();
-    
+
   }, []);
 
   useEffect(() => {
