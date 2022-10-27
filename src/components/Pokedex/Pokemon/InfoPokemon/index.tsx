@@ -16,7 +16,7 @@ export function InfoPokemon(props: InfoPokemonProps) {
     SearchPokemonClick();
   }, []);
 
-  console.log(pokemon);
+  console.log(pokemon)
 
   return (
     <div className="container-info">
