@@ -12,6 +12,7 @@
 }
 
 .info-container{
+    border-radius: 30px 30px 0 0;
     height: 90%;
     width: 30%;
 }
@@ -47,7 +48,8 @@
 
 .info-container figure img{
     object-fit: cover;
-    width: calc(100% - 49%);
+    max-width: 200px;
+    width: 45%;
     z-index: 999;
 }
 
@@ -57,7 +59,6 @@
 }
 
 .container-infos-pokemon{
-    align-items: center;
     background-color: white;
     border-radius: 40px 40px 0 0;
     display: flex;
@@ -70,15 +71,22 @@
 }
 
 .infos-pokemon{
-    margin: 0 1.3rem;
+    color: black;
+    flex-direction: column;
+    margin: 5rem 1.3rem 0 1.3rem;
+    gap: 10px;
     width: 100%;
+}
+
+.infos-pokemon h2{
+    text-align: center;
+    text-transform: capitalize;
 }
 
 .info-status{
     align-items: center;
-    color: black;
     display: flex;
-    padding-bottom: 10px;
+    padding: 10px 0px 8px 0px;
     text-transform: capitalize;
 }
 
@@ -101,6 +109,7 @@
 
 @media screen and (max-width: 640px){
     .info-container{
+        border-radius: 0;
         height: 100%;
         width: 100%;
     }
@@ -108,5 +117,10 @@
     .container-infos-pokemon{
         height: 74%;
         width: 100%;
+    }
+
+    .info-container figure img{
+        max-width: none;
+        width: 57%;
     }
 }

@@ -35,11 +35,13 @@ export function InfoPokemon(props: InfoPokemonProps) {
 
         <section>
           <figure>
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <img src={pokemon.sprites.front_default} alt={pokemon.name}
+            />
           </figure>
 
           <div className="container-infos-pokemon">
             <div className="infos-pokemon">
+              <h2 className="h2">stats</h2>
               {pokemon.stats.map((stat:any) => (
                 <div className={`info-status ${stat.stat.name}`}>
                   <p>{stat.stat.name}</p>
