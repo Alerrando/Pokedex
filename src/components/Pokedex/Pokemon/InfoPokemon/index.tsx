@@ -16,7 +16,7 @@ export function InfoPokemon(props: InfoPokemonProps) {
     SearchPokemonClick();
   }, []);
 
-  console.log(pokemon)
+  console.log(pokemon);
 
   return (
     <div className="container-info">
@@ -35,18 +35,42 @@ export function InfoPokemon(props: InfoPokemonProps) {
 
         <section>
           <figure>
-            <img src={pokemon.sprites.front_default} alt={pokemon.name}
-            />
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           </figure>
 
           <div className="container-infos-pokemon">
+            <h2 className="h2">Infos</h2>
+            <div className="type-info">
+              {pokemon?.types.map((type: any, index: number) => (
+                <div className="pokemon-type-text" key={index}>
+                  <button
+                    className="btn-type-pokemon"
+                    style={{
+                      background: `url("/public/Habitat/${type.type.name}.jpeg")`,
+                      backgroundSize: "cover",
+                    }}
+                  >
+                    {type.type.name}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="info-weight-height">
+              <button>⚖️Peso: {pokemon.weight}</button> 
+              <button>🪜Altura: {pokemon.height}</button> 
+            </div>
+
             <div className="infos-pokemon">
               <h2 className="h2">stats</h2>
-              {pokemon.stats.map((stat:any) => (
+              {pokemon.stats.map((stat: any) => (
                 <div className={`info-status ${stat.stat.name}`}>
                   <p>{stat.stat.name}</p>
                   <div className="status">
-                    <div className="status-quant" style={{width: stat.base_stat}}></div>
+                    <div
+                      className="status-quant"
+                      style={{ width: stat.base_stat }}
+                    ></div>
                   </div>
                 </div>
               ))}

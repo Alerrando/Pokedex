@@ -7,7 +7,6 @@ export function Router(){
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} />
-                <Route path="/favoritos" element={<Favorites />}/>
             </Routes>
         </BrowserRouter>
     )

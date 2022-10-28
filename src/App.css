@@ -94,10 +94,9 @@ nav span{
     width: 38%;
 }
 
-.container-gadgets a{
+.container-gadgets{
     color: white;
     cursor: pointer;
-    text-decoration: none;
 }
 
 .pokedex{
@@ -213,13 +212,14 @@ nav span{
 @media screen and (max-width: 640px) {
     .container{
         margin: 0px;
-        width: 100%;
+        width: 98%;
     }
 
     .container-navbar{
         align-items: center;
         flex-direction: row;
-        gap: 3.4375rem;
+        gap: 50px;
+        width: 80%;
     }
 
     .container-gadgets{
