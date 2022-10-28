@@ -96,7 +96,8 @@ nav span{
 
 .pokedex{
     background-color: #222;
-    color: white
+    color: white;
+    margin-bottom: 1rem;
 }
 
 .pokedex-header{
@@ -119,7 +120,7 @@ nav span{
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);
-    padding:  10px 0 0 12px;
+    padding:  10px 0 8px 12px;
     overflow: hidden;
 }
 

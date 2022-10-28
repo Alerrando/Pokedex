@@ -14,7 +14,7 @@ export function App() {
   const [totalPages, setTotalPages] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
 
-  const itensPerPage = 25;
+  const itensPerPage = 24;
 
   useEffect(() => {
     loadFavoritePokemons();

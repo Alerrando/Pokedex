@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import FavoriteContext from "../../context/favoritesContext";
 import { Searchbar } from "./Searchbar";
 
@@ -22,7 +23,10 @@ export function Navbar(props: NavbarProps) {
         </div>
 
         <div className="container-gadgets">
-          <span>Favoritos {favoritePokemon.length}❤️</span>
+            <Link to="/favoritos">
+              <p>Favoritos {favoritePokemon.length}❤️</p>
+            </Link>
+
         </div>
       </div>
       <Searchbar onSearch={onSearch} />
