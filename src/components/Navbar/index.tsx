@@ -8,7 +8,7 @@ type NavbarProps = {
 };
 
 export function Navbar(props: NavbarProps) {
-  const { onSearch} = props;
+  const { onSearch } = props;
   const logoImg =
     "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
   const { favoritePokemon } = useContext(FavoriteContext);
@@ -20,13 +20,17 @@ export function Navbar(props: NavbarProps) {
           <div>
             <img src={logoImg} alt="pokeapi-logo" className="navbar-img" />
           </div>
-        </div>
 
-        <div className="container-gadgets">
+          <div className="container-gadgets">
             <Link to="/favoritos">
               <p>Favoritos {favoritePokemon.length}❤️</p>
             </Link>
-
+          </div>
+        </div>
+        <div className="pokebola">
+          <a href="https://github.com/Alerrando/Pokedex" target="_blank" rel="noopener noreferrer">
+            <img src="icon.svg" alt="" />            
+          </a>
         </div>
       </div>
       <Searchbar onSearch={onSearch} />

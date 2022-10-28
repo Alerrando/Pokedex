@@ -1,5 +1,10 @@
+import { NavbarFavorites } from "./NavbarFavorites";
+import '../../App.css'
+
 export function Favorites(){
     return(
-        <h1>Hello World</h1>
+        <>
+            <NavbarFavorites />
+        </>
     )
 }

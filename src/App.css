@@ -32,12 +32,17 @@ nav span{
     justify-content: space-between;
     margin: 0 20px;
     padding: 10px 0px;
-    width: 30%;
+    width: 96%;
 }
 
 .container-navbar{
     justify-content: space-between;
-    width: 35%;
+    width: 30%;
+}
+
+.pokebola{
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 .searchbar-container{
@@ -89,9 +94,10 @@ nav span{
     width: 38%;
 }
 
-.container-gadgets span{
+.container-gadgets a{
+    color: white;
     cursor: pointer;
-    font-size: 1.1rem;
+    text-decoration: none;
 }
 
 .pokedex{
@@ -212,8 +218,8 @@ nav span{
 
     .container-navbar{
         align-items: center;
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: row;
+        gap: 3.4375rem;
     }
 
     .container-gadgets{
