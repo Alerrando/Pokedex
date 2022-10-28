@@ -46,7 +46,7 @@ export function InfoPokemon(props: InfoPokemonProps) {
                   <button
                     className="btn-type-pokemon"
                     style={{
-                      background: `url("/public/Habitat/${type.type.name}.jpeg")`,
+                      background: `url("Habitat/${type.type.name}.jpeg")`,
                       backgroundSize: "cover",
                     }}
                   >
