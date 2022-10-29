@@ -64,9 +64,7 @@ pnpm create vite my-vue-app --template vue
 <br/>
 
 <div align="center">
-
-# Em construção 🚧🚧
-
+    <img src="./github/PokedexPc.gif">
 </div>
 
 <p>Alerrando © 2022 Obrigado por acessar</p>
