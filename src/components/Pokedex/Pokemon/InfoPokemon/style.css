@@ -62,6 +62,7 @@
     margin: 0 auto;
     position: absolute;
     overflow-y: auto;
+    overflow-x: hidden;
     top: 25%;
     width: 100%;
 }
