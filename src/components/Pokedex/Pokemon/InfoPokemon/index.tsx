@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ArrowLeft, Star } from "phosphor-react";
 import "./style.css";
+import FavoriteContext from "../../../../context/favoritesContext";
 
 type InfoPokemonProps = {
   setModal: (modal: boolean) => void;
@@ -9,14 +10,14 @@ type InfoPokemonProps = {
 };
 
 export function InfoPokemon(props: InfoPokemonProps) {
+  const { favoritePokemon, updateFavoritePokemon } = useContext(FavoriteContext);
   const { setModal, clickPokemon, pokemon } = props;
   const [infos, setInfos] = useState<any>([]);
+  const hearth = favoritePokemon.includes(pokemon.name) ? "❤️" : "🖤";
 
   useEffect(() => {
     SearchPokemonClick();
   }, []);
-
-  console.log(pokemon);
 
   return (
     <div className="container-info">
@@ -30,7 +31,8 @@ export function InfoPokemon(props: InfoPokemonProps) {
         <header className="info-header">
           <ArrowLeft size={32} onClick={() => setModal(false)} />
           <h2 className="h2">{infos.name}</h2>
-          <Star size={32} className="icon-star" />
+          <h2 className="hearth-btn" onClick={() => updateFavoritePokemon(pokemon.name)}>{hearth}</h2>
+          
         </header>
 
         <section>
