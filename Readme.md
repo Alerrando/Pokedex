@@ -4,7 +4,7 @@
     Pokédex
 </h1>
 
-<p align="center">Um projeto de uma Pokédex feito com <a href="https://www.typescriptlang.org/">Typescript</a> 
+<p align="center">Um projeto de uma Pokédex feito com <a href="https://www.typescriptlang.org/">Typescript</a>  e usado a Api <a href="https://pokeapi.co/">PokéAPI</a></p>
 </br>
 
 ## ⌨️ Criação e Execução
@@ -65,6 +65,7 @@ pnpm create vite my-vue-app --template vue
 
 <div align="center">
     <img src="./github/PokedexPc.gif">
+    <img src="./github/PokedexMobile.gif">
 </div>
 
 <p>Alerrando © 2022 Obrigado por acessar</p>
